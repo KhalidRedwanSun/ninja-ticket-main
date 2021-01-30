@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--Header and Menu Section-->
+    <header class="container">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a class="active" href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Booking Section-->
+    <main class="main-content container">
+        <div class="booking-form">
+            <h3>Booking Flights</h3>
+            <div class="input-group">
+                <label for="">Flying From</label>
+                <input class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
+            </div>
+            <div class="input-group">
+                <label for="">Flying To</label>
+                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+            </div>
+            <div class="inputs">
+                <div class="input-group">
+                    <label" for="">Departure</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+                <div class="input-group">
+                    <label for="">Return</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+            </div>
+            <div class="input-group f-class">
+                <div>
+                    <label for="">First Class ($150) 
+                    </label>
+                    
+                    
+                    <div style="display: flex;">
+                        <button class="firstClsMBtn"  style="font-size: 3em; border: 0px solid white; background-color: white;color: #3352F2;"   >-</button>
+                        <input class="firstClsInput" style="margin: 10px; text-align: center;" class="inp-style inp-width" type="number" name="">
+                        <button class="firstClsPBtn" style="font-size: 2em; border: 0px solid white; background-color: white;color: #3352F2;"   >+</button>
+                        
+             
+    
+                    </div>   
+                   
+                </div>
+                <br>
+                <br>
+
+                
+                <!-- <div style="display: flex;" class="plus-minus-btn"> -->
+
+                    <!-- <p>+ -</p> -->
+                    <!-- <button   >+</button> -->
+                    
+                    
+                    
+                <!-- </div>  -->
+            </div>
+            
+            <div class="input-group f-class">
+                <div>
+                    <label for="">Economy ($100)</label>
+                    <br>
+                    <!-- <input class="inp-style inp-width" type="number" name=""> -->
+                    <div style="display: flex;">
+                        <button class="ecoClsMBtn"  style="font-size: 3em; border: 0px solid white; background-color: white;color: #3352F2;"   >-</button>
+                        <input class="ecoClsInput" style="margin: 10px; text-align: center;" class="inp-style inp-width" type="number" name="">
+                        <button class="ecoClsPBtn" style="font-size: 2em; border: 0px solid white; background-color: white;color: #3352F2;"   >+</button>
+                        
+             
+    
+                    </div> 
+
+                </div>
+               
+
+               
+
+
+                
+            </div>
+            <div class="calculations">
+                <div class="amount">
+                    <div class="left">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="right">
+                        <p class="subtotal">0</p>
+                    </div>
+                </div>
+
+                <div class="amount">
+                    <div class="left">
+                        <p>Charge 10% VAT</p>
+                    </div>
+                    <div class="right">
+                        <p class="tax">0</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="amount">
+                    <div class="left">
+                        <h4>Total</h4>
+                    </div>
+                    <div class="right">
+                        <p class="totalcost">0</p>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-style">Book Now</button>
+        </div>
+
+        <div class="booking-content">
+            <h1>discover <br> around the world</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
+        </div>
+    </section>
+
+    <!--Thank You-->
+
+    <script>
+
+        // first class handler
+
+        var firstClsBtn=document.querySelector(".firstClsPBtn");
+        firstClsBtn.addEventListener("click",function(){
+            // function call kortesi
+            var firstclsFare=productQuantityIncrease(true);
+            console.log("f class plus btn pressed, Fare= ",firstclsFare);
+
+        });
+
+        var firstClsBtn=document.querySelector(".firstClsMBtn");
+        firstClsBtn.addEventListener("click",function(){
+
+            firstclsFare =productQuantityIncrease(false);
+            console.log("f class minus btn presssed.Fare= ",firstclsFare);
+
+        });
+
+        
+        function  productQuantityIncrease(isIncrease){
+
+        
+            
+            
+            var firstClsInput=document.querySelector(".firstClsInput").value;
+            var naNfirstClsInput =  parseFloat ( "0"+ firstClsInput );
+
+
+            if (isIncrease==true){
+                var totalTickets= naNfirstClsInput+1;
+                if(totalTickets>=0){
+                
+                    document.querySelector(".firstClsInput").value =totalTickets;
+
+                }
+                else{
+                    totalTickets=0;
+                    document.querySelector(".firstClsInput").value =totalTickets;
+                }
+
+            } 
+            
+            else if(isIncrease==false){
+                var totalTickets= naNfirstClsInput-1;
+                if(totalTickets>=0){
+                    document.querySelector(".firstClsInput").value =totalTickets;
+
+                }
+                else{
+                    totalTickets=0;
+                    document.querySelector(".firstClsInput").value =totalTickets;
+                }
+
+            }
+            
+            // var subtotal= document.querySelector("#subtotal").innerText;
+            var firstClassTotal= totalTickets*150 ;
+            // document.querySelector("#subtotal").innerText=subtotalNumber;
+
+
+            var firstClsInputValue= document.querySelector(".firstClsInput").value;
+            var naNfirstClsInputValue=parseFloat(firstClsInputValue);
+
+            var ecoClsInputValue= document.querySelector(".ecoClsInput").value;
+            var naNecoClsInputValue=parseFloat(ecoClsInputValue);
+
+
+        // WRITTING SUBTOTAL
+
+            var readingSubtotalValue=document.querySelector(".subtotal").innerText;
+            var finalSubtotal=parseFloat("0"+naNfirstClsInputValue*150 )+parseFloat("0"+ naNecoClsInputValue*100) ;
+            console.log("finalsubtotal",finalSubtotal);
+            document.querySelector(".subtotal").innerText="$" + finalSubtotal;
+
+        // WRITTING TAX VALUE
+         
+
+            var readingTaxValue=document.querySelector(".tax").innerText;
+            var totalTax=parseFloat ("0"+finalSubtotal*.1);
+            document.querySelector(".tax").innerText="$"+totalTax;
+
+        // TOTAL COST
+
+            var readingTotalCost=document.querySelector(".totalcost").innerText;
+            var totalCost=parseFloat(finalSubtotal)+parseFloat(totalTax);
+            document.querySelector(".totalcost").innerText="$"+totalCost;
+
+
+
+
+
+
+
+            
+            return firstClassTotal;
+        }
+
+// ECONOMY CLASS CALCULATION
+
+        
+            
+            var ecoClsBtn=document.querySelector(".ecoClsPBtn");
+            ecoClsBtn.addEventListener("click",function(){
+            // function call kortesi
+                var ecoClsFare =producttQuantityIncrease(true);
+
+                console.log("pressing eco plus Fare= ",ecoClsFare);
+            });
+
+            var ecoClsBtn=document.querySelector(".ecoClsMBtn");
+            ecoClsBtn.addEventListener("click",function(){
+
+                ecoClsFare=producttQuantityIncrease(false);
+                console.log("pressing eco minus Fare= ",ecoClsFare);
+
+
+            });
+
+            
+
+          
+        
+            function  producttQuantityIncrease(isIncrease){
+
+        
+            
+            
+                var ecoClsInput=document.querySelector(".ecoClsInput").value;
+                var naNecoClsInput =  parseFloat ( "0"+ ecoClsInput );
+
+
+                if (isIncrease==true){
+                    var totalTickets= naNecoClsInput+1;
+                    if(totalTickets>=0){
+                    
+                        document.querySelector(".ecoClsInput").value =totalTickets;
+
+                    }
+                    else{
+                        totalTickets=0;
+                        document.querySelector(".ecoClsInput").value =totalTickets;
+                    }
+
+                } 
+                
+                else if(isIncrease==false){
+                    var totalTickets= naNecoClsInput-1;
+                    if(totalTickets>=0){
+                        document.querySelector(".ecoClsInput").value =totalTickets;
+
+                    }
+                    else{
+                        totalTickets=0;
+                        document.querySelector(".ecoClsInput").value =totalTickets;
+                    }
+
+                }
+                
+                var ecoClassTotal= totalTickets*100 ;
+
+
+                var firstClsInputValue= document.querySelector(".firstClsInput").value;
+                var naNfirstClsInputValue=parseFloat(firstClsInputValue);
+
+                var ecoClsInputValue= document.querySelector(".ecoClsInput").value;
+                var naNecoClsInputValue=parseFloat(ecoClsInputValue);
+
+
+                // subtotal
+
+                var readingSubtotalValue=document.querySelector(".subtotal").innerText;
+                var finalSubtotal=parseFloat("0"+naNfirstClsInputValue*150) + naNecoClsInputValue*100 ;
+                console.log("finalSubtotal",finalSubtotal);
+                document.querySelector(".subtotal").innerText="$"+finalSubtotal;
+
+
+                // TAX
+
+                var readingTaxValue=document.querySelector(".tax").innerText;
+                var totalTax=parseFloat ("0"+finalSubtotal*.1);
+                document.querySelector(".tax").innerText="$"+totalTax;
+
+
+                // TOTAL COST
+
+                var readingTotalCost=document.querySelector(".totalcost").innerText;
+                var totalCost=parseFloat(finalSubtotal)+parseFloat(totalTax);
+                document.querySelector(".totalcost").innerText="$"+totalCost;
+
+
+                
+
+                
+
+
+                
+                return ecoClassTotal;
+
+            }
+
+                
+            
+            
+      
+
+        
+
+
+         
+
+
+        
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
